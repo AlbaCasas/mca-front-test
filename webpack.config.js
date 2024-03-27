@@ -2,23 +2,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
-
-module.exports = {
+module.exports = (env, argv) => ({
   entry: './src/index.tsx',
-  mode: mode,
+  mode: argv.mode,
   output: {
-    filename: mode === 'production' ? 'bundle.[fullhash].min.js' : 'bundle.js',
+    filename: argv.mode === 'production' ? 'bundle.[fullhash].min.js' : 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    mode === 'production' ? new MiniCssExtractPlugin() : null
+    })
   ].filter(Boolean),
   resolve: {
     modules: [__dirname, 'src', 'node_modules'],
@@ -34,10 +29,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use:
-          mode === 'production'
-            ? [MiniCssExtractPlugin.loader, 'css-loader']
-            : ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -47,11 +39,12 @@ module.exports = {
     ]
   },
   optimization: {
-    minimizer: mode === 'production' ? [new TerserPlugin(), new CssMinimizerPlugin()] : []
+    minimize: argv.mode === 'production' ? true : false,
+    minimizer: [new TerserPlugin()]
   },
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
     maxAssetSize: 512000
   }
-};
+});

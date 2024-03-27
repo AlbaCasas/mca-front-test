@@ -1,6 +1,8 @@
+import './app.css';
+
 const App = () => (
   <div>
-    <h1>Hello World! I'm the initial commit</h1>
+    <h1 className="text-primary text-4xl font-bold">Hello World! Im the initial commit</h1>
   </div>
 );
 
