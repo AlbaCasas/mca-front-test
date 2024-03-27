@@ -14,7 +14,11 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@features/*": ["./src/features/*"],
+      "@navigation/*": ["./src/navigation/*"]
+    }
   },
   "include": ["src/**/**/*"],
   "exclude": ["node_modules"]

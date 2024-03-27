@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: './src/index.tsx',
@@ -17,7 +18,8 @@ module.exports = (env, argv) => ({
   ].filter(Boolean),
   resolve: {
     modules: [__dirname, 'src', 'node_modules'],
-    extensions: ['*', '.tsx', '.ts', '.js', '.jsx']
+    extensions: ['*', '.tsx', '.ts', '.js', '.jsx'],
+    plugins: [new TsconfigPathsPlugin()]
   },
   module: {
     rules: [
