@@ -16,6 +16,9 @@
     "strictNullChecks": true,
     "esModuleInterop": true,
     "paths": {
+      "@components": ["./src/components/index.ts"],
+      "@components/*": ["./src/components/*"],
+      "@core/*": ["./src/core/*"],
       "@features/*": ["./src/features/*"],
       "@navigation/*": ["./src/navigation/*"]
     }
