@@ -1,0 +1,27 @@
+import React from 'react';
+
+import { useGetPodcastList } from '../api/getPodcastList';
+
+const useListPodcastsUseCase = () => {
+  const { data: podcastList } = useGetPodcastList();
+  const [filter, setFilter] = React.useState<string>('');
+
+  const filterList = React.useCallback((filter: string) => {
+    setFilter(filter);
+  }, []);
+
+  const podcasts = React.useMemo(() => {
+    if (!podcastList) return [];
+    if (filter) {
+      return podcastList.getFilteredList(filter);
+    }
+    return podcastList.podcasts;
+  }, [filter, podcastList]);
+
+  const totalPodcasts = podcastList?.podcasts?.length || 0;
+  const shownPodcasts = podcasts.length;
+
+  return { podcasts, filterList, totalPodcasts, shownPodcasts };
+};
+
+export default useListPodcastsUseCase;

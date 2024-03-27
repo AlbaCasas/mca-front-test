@@ -4,7 +4,7 @@ import { PodcastList } from '@features/home/domain/PodcastList';
 import { PodcastListDTO } from '../dtos/PodcastListDTO';
 
 export function mapPodcastListDTOToPodcastList(dto: PodcastListDTO): PodcastList {
-  return dto.feed.entry.map((entry) => {
+  const podcasts = dto.feed.entry.map((entry) => {
     const title = entry.title.label;
     const id = entry.id.attributes['im:id'];
     // Based on tests, I'm assuming that the last image in the array will be the highest resolution one
@@ -17,4 +17,6 @@ export function mapPodcastListDTOToPodcastList(dto: PodcastListDTO): PodcastList
     const author = entry['im:artist'].label;
     return new Podcast(title, id, image, author);
   });
+
+  return new PodcastList(podcasts);
 }

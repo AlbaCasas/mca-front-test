@@ -10,7 +10,6 @@ interface TextProps {
   bold?: boolean;
   pointer?: boolean;
   className?: string;
-  maxLines?: number;
   tooltip?: string;
 }
 
@@ -24,7 +23,6 @@ export const Text = ({
   bold,
   pointer,
   className,
-  maxLines,
   tooltip
 }: TextProps) => {
   return (
@@ -39,8 +37,7 @@ export const Text = ({
           'text-xl font-bold': title,
           'text-lg font-bold': subtitle,
           'font-bold': bold,
-          'cursor-pointer': pointer,
-          [`line-clamp-${maxLines} text-ellipsis`]: !!maxLines
+          'cursor-pointer': pointer
         },
         className
       )}>
