@@ -1,4 +1,6 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
+import { QueryClient } from '@tanstack/react-query';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 
 const ONE_DAY = 1000 * 60 * 60 * 24;
 const config = {
@@ -8,14 +10,22 @@ const config = {
       refetchOnMount: false,
       refetchOnReconnect: false,
       retry: 1,
-      // The cache lasts 1 day as specified by tech requirements
-      staleTime: ONE_DAY
+      // By default, the cache will be persisted in local storage for 24 hours
+      cacheTime: ONE_DAY
     }
   }
 };
 
 export const client = new QueryClient(config);
 
+const persister = createSyncStoragePersister({
+  storage: window.localStorage
+});
+
 export const ReactQueryProvider = ({ children }: { children: React.ReactNode }) => {
-  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
+  return (
+    <PersistQueryClientProvider persistOptions={{ persister }} client={client}>
+      {children}
+    </PersistQueryClientProvider>
+  );
 };
