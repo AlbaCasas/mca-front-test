@@ -49,5 +49,5 @@ export const BodyTd = ({
   );
 
 export const BodyTr = ({ className, ...props }: { className?: string }) => (
-  <tr {...props} className={cls('border-b-[1px] border-gray last:border-0 ', className)} />
+  <tr {...props} className={cls('border-b-[1px] border-gray last:border-0', className)} />
 );

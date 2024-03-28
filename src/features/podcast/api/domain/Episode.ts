@@ -6,12 +6,15 @@ export class Episode {
   constructor(
     public id: string,
     public title: string,
-    public publicationDate: string,
+    public publishDate: string,
+    public description: string,
+    public fileUrl: string,
+    public fileFormat: string,
     duration: number
   ) {
-    this.publicationDate = DateTime.fromISO(publicationDate)
+    this.publishDate = DateTime.fromISO(publishDate)
       .setLocale('en')
       .toLocaleString(DateTime.DATE_MED);
-    this.duration = Duration.fromMillis(duration).toFormat("mm'm' ss's'");
+    this.duration = duration ? Duration.fromMillis(duration).toFormat("mm'm' ss's'") : '-';
   }
 }

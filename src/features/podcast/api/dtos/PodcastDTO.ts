@@ -9,6 +9,9 @@ export interface PodcastDTO {
 
 export interface EpisodeDTO {
   trackName: string;
+  description: string;
+  episodeFileExtension: string;
+  episodeUrl: string;
   trackId: number;
   releaseDate: string;
   trackTimeMillis: number;

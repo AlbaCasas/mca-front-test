@@ -12,6 +12,9 @@ export function mapPodcastDTOToPodcast(dto: PodcastLookupDTO): Podcast {
         `${episode.trackId}`,
         episode.trackName,
         episode.releaseDate,
+        episode.description,
+        episode.episodeUrl,
+        episode.episodeFileExtension,
         episode.trackTimeMillis
       )
   );

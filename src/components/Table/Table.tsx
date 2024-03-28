@@ -16,6 +16,7 @@ interface TableProps {
   onEmptyRender?: () => React.ReactNode;
   onErrorRender?: () => React.ReactNode;
   onLoadingRender?: () => React.ReactNode;
+  onRowClick?: (item: object) => void;
 }
 
 export const Table = ({
@@ -27,7 +28,8 @@ export const Table = ({
   rowKey,
   onLoadingRender,
   onErrorRender,
-  onEmptyRender
+  onEmptyRender,
+  onRowClick
 }: TableProps) => {
   const getEmptyText = () => {
     if (error && onErrorRender) return onErrorRender();
@@ -56,9 +58,19 @@ export const Table = ({
               {children}
             </BodyTd>
           ),
-          row: (props: object) => <BodyTr {...props} />
+          row: (props: object) => (
+            <BodyTr
+              {...props}
+              className={cls({ 'cursor-pointer hover:bg-background': !!onRowClick })}
+            />
+          )
         }
       }}
+      onRow={(record) => ({
+        onClick: () => {
+          if (onRowClick) onRowClick(record);
+        }
+      })}
       rowKey={rowKey}
     />
   );

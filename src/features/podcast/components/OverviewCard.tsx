@@ -23,8 +23,8 @@ export const OverviewCard = ({
 
   if (isLoading) {
     return (
-      <Card className="gap-3 p-0 pb-5 md:max-w-[400px] h-fit box-border w-full">
-        <Skeleton height={400} width={400} />
+      <Card className="gap-3 p-0 pb-5 h-fit md:w-[500px]">
+        <Skeleton className="flex-grow top-[-4px] h-[240px] md:h-[300px]" />
         <Column className="px-4 gap-4">
           <Skeleton lines={2} />
           <Column>
@@ -37,9 +37,9 @@ export const OverviewCard = ({
   }
 
   return (
-    <Card className="gap-3 p-0 md:max-w-[400px] h-fit">
-      <Image src={image || ''} />
-      <Column className="px-4 pb-5 gap-4">
+    <Card className="gap-3 p-0 pb-5 h-fit md:w-[500px]">
+      <Image src={image || ''} className="h-[240px] md:h-[300px]" />
+      <Column className="px-4 gap-4">
         <Column>
           <Text subtitle>{title}</Text>
           <Text className="text-lightText" bold>
@@ -48,7 +48,7 @@ export const OverviewCard = ({
         </Column>
         <Column className="gap-1 w-full">
           <Text bold>Description</Text>
-          <Row className="w-full overflow-hidden">{descriptionComponent}</Row>
+          <Row className="w-full">{descriptionComponent}</Row>
         </Column>
       </Column>
     </Card>

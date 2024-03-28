@@ -14,7 +14,7 @@ module.exports = {
       text: '#101828',
       lightText: '#8A92A6',
       gray: '#D0D5DD',
-      background: '#FAFAFA'
+      background: '#F3F3F1'
     },
     spacing: {
       0: '0px',

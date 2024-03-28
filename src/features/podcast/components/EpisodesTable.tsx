@@ -1,5 +1,5 @@
 import { ColumnType } from 'rc-table';
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Column, Skeleton } from '@components';
 import { Table } from '@components/Table';
@@ -13,8 +13,8 @@ const columns: ColumnType<string>[] = [
     title: 'Title'
   },
   {
-    dataIndex: 'publicationDate',
-    key: 'publicationDate',
+    dataIndex: 'publishDate',
+    key: 'publishDate',
     title: 'Publish Date'
   },
   {
@@ -31,17 +31,19 @@ export const EpisodesTable = ({
   episodes?: Episode[];
   isLoading: boolean;
 }) => {
+  const navigate = useNavigate();
   return (
     <Table
       columns={columns}
       data={episodes}
       rowKey="id"
-      className="w-full"
+      className="w-full flex-grow"
       onLoadingRender={() => (
         <Column className="px-2">
           <Skeleton height={50} lines={20} />
         </Column>
       )}
+      onRowClick={(episode: Episode) => navigate(`episode/${episode.id}`)}
       loading={isLoading}
     />
   );

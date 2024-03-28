@@ -16,7 +16,8 @@ export const useRenderPodcastUseCase = ({ id }: { id: string }) => {
         const scrapedDescription = await podcast?.scrapeDescription();
         setDescription(scrapedDescription || '');
       } catch (error) {
-        console.error(error);
+        setDescription('');
+        console.log('Error scrapping description', error);
       }
     }
     isScrapped.current = true;
