@@ -32,7 +32,7 @@ export const Text = ({
       title={tooltip}
       dangerouslySetInnerHTML={html ? { __html: html } : undefined}
       className={cls(
-        'text-text text-md font-light',
+        'text-text text-md font-light break-all',
         {
           'text-xs font-light': tag,
           'text-sm font-light': small,

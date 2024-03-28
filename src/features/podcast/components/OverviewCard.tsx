@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Card, Column, Image, Row, Skeleton, Text } from '@components';
 
@@ -7,9 +8,11 @@ export const OverviewCard = ({
   title,
   author,
   description,
+  podcastPath,
   isLoading
 }: {
   isLoading: boolean;
+  podcastPath: string;
   image?: string;
   title?: string;
   author?: string;
@@ -37,20 +40,23 @@ export const OverviewCard = ({
   }
 
   return (
-    <Card className="gap-3 p-0 pb-5 h-fit md:w-[500px]">
-      <Image src={image || ''} className="h-[240px] md:h-[300px]" />
-      <Column className="px-4 gap-4">
-        <Column>
-          <Text subtitle>{title}</Text>
-          <Text className="text-lightText" bold>
-            by {author}
-          </Text>
+    <Link className="flex flex-col md:w-[500px]" to={podcastPath}>
+      <Card className="gap-3 p-0 pb-5 h-fit hover:scale-[101%] transition-all">
+        <Image src={image || ''} className="h-[240px] md:h-[300px] cursor-pointer" />
+        <Column className="px-4 gap-4">
+          <Column>
+            <Text subtitle>{title}</Text>
+            <Text className="text-lightText" bold>
+              by {author}
+            </Text>
+          </Column>
+
+          <Column className="gap-1 w-full">
+            <Text bold>Description</Text>
+            <Row className="w-full">{descriptionComponent}</Row>
+          </Column>
         </Column>
-        <Column className="gap-1 w-full">
-          <Text bold>Description</Text>
-          <Row className="w-full">{descriptionComponent}</Row>
-        </Column>
-      </Column>
-    </Card>
+      </Card>
+    </Link>
   );
 };

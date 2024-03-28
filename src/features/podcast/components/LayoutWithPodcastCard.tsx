@@ -21,6 +21,7 @@ export const LayoutWithPodcastCard = ({
         image={podcast?.image.src}
         title={podcast?.title}
         author={podcast?.author}
+        podcastPath={`/podcast/${podcastId}`}
         description={{ text: description, isLoading: isDescriptionLoading }}
         isLoading={isPodcastLoading}
       />

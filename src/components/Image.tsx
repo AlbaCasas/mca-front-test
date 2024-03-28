@@ -5,9 +5,10 @@ interface ImageProps {
   size?: number;
   alt?: string;
   className?: string;
+  onClick?: () => void;
 }
 
-export const Image = ({ src, alt, className, size }: ImageProps) => {
+export const Image = ({ src, alt, className, size, onClick }: ImageProps) => {
   return (
     <img
       src={src}
@@ -17,6 +18,7 @@ export const Image = ({ src, alt, className, size }: ImageProps) => {
         { [`h-[${size}px] w-[${size}px]`]: !!size },
         className
       )}
+      onClick={onClick}
     />
   );
 };

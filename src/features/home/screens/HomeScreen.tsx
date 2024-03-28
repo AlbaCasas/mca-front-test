@@ -28,7 +28,7 @@ export const HomeScreen = () => {
       </Column>
       <Row className="flex-wrap gap-4 justify-center md:justify-start">
         {podcasts?.map((podcast) => (
-          <Link to={getPodcastPath(podcast.id)} key={podcast.id} className="flex flex-grow">
+          <Link to={getPodcastPath(podcast.id)} key={podcast.id} className="flex">
             <PodcastCard author={podcast.author} image={podcast.image.src} title={podcast.title} />
           </Link>
         ))}
