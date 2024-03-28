@@ -1,5 +1,5 @@
-import { Episode } from '../domain/Episode';
-import { Podcast } from '../domain/Podcast';
+import { Episode } from '../../domain/Episode';
+import { Podcast } from '../../domain/Podcast';
 import { EpisodeDTO, PodcastDTO, PodcastLookupDTO } from '../dtos/PodcastDTO';
 
 export function mapPodcastDTOToPodcast(dto: PodcastLookupDTO): Podcast {

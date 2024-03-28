@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Column, Skeleton } from '@components';
 import { Table } from '@components/Table';
 
-import { Episode } from '../api/domain/Episode';
+import { Episode } from '../domain/Episode';
 
 const columns: ColumnType<string>[] = [
   {
