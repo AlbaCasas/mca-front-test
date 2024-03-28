@@ -1,20 +1,25 @@
 import { DateTime, Duration } from 'luxon';
 
+const ONE_HOUR = 1000 * 60 * 60;
 export class Episode {
-  public duration: string;
-
   constructor(
     public id: string,
     public title: string,
-    public publishDate: string,
+    private publishDateISO: string,
     public description: string,
     public fileUrl: string,
     public fileFormat: string,
-    duration: number
-  ) {
-    this.publishDate = DateTime.fromISO(publishDate)
-      .setLocale('en')
-      .toLocaleString(DateTime.DATE_MED);
-    this.duration = duration ? Duration.fromMillis(duration).toFormat("mm'm' ss's'") : '-';
+    private durationMillis: number
+  ) {}
+
+  public get publishDate() {
+    return DateTime.fromISO(this.publishDateISO).setLocale('en').toLocaleString(DateTime.DATE_MED);
+  }
+
+  public get duration() {
+    if (!this.durationMillis) return '-';
+    if (this.durationMillis > ONE_HOUR)
+      return Duration.fromMillis(this.durationMillis).toFormat("h'h' mm'm' ss's'");
+    return Duration.fromMillis(this.durationMillis).toFormat("mm'm' ss's'");
   }
 }

@@ -13,7 +13,7 @@ export const useListPodcastsUseCase = () => {
   const podcasts = React.useMemo(() => {
     if (!podcastList) return [];
     if (filter) {
-      return podcastList.getFilteredList(filter);
+      return podcastList.filter(filter).podcasts;
     }
     return podcastList.podcasts;
   }, [filter, podcastList]);
