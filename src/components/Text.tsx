@@ -5,12 +5,13 @@ interface TextProps {
   tag?: boolean;
   body?: boolean;
   title?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   subtitle?: boolean;
   bold?: boolean;
   pointer?: boolean;
   className?: string;
   tooltip?: string;
+  html?: string;
 }
 
 export const Text = ({
@@ -23,11 +24,13 @@ export const Text = ({
   bold,
   pointer,
   className,
-  tooltip
+  tooltip,
+  html
 }: TextProps) => {
   return (
     <span
       title={tooltip}
+      dangerouslySetInnerHTML={html ? { __html: html } : undefined}
       className={cls(
         'text-text text-md font-light',
         {

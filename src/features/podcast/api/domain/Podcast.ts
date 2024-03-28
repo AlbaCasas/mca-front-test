@@ -12,6 +12,8 @@ export class Podcast {
     public episodes: Episode[]
   ) {}
 
+  // Function that retrieves the XML from the podcast feedURL
+  // and returns the content of the <description> tag if found
   public async scrapeDescription(): Promise<string> {
     const xmlString = await new HTTPClient(this.feedUrl).get<string>('');
     const parser = new DOMParser();
@@ -20,7 +22,7 @@ export class Podcast {
     if (descriptionTag?.textContent) {
       return descriptionTag.textContent.trim();
     } else {
-      return 'Description not found';
+      throw new Error('Description not found in podcast feed');
     }
   }
 }

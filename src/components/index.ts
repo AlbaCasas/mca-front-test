@@ -4,4 +4,6 @@ export * from './Image';
 export * from './Icon';
 export * from './Input';
 export * from './Row';
+export * from './Skeleton';
+export * from './Table';
 export * from './Text';
