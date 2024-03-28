@@ -1,8 +1,14 @@
+import { Episode } from '../domain/Episode';
 import { Podcast } from '../domain/Podcast';
-import { PodcastDTO } from '../dtos/PodcastDTO';
+import { EpisodeDTO, PodcastDTO, PodcastLookupDTO } from '../dtos/PodcastDTO';
 
-export function mapPodcastDTOToPodcast(dto: PodcastDTO, description: string): Podcast {
-  const podcast = dto.results[0];
+export function mapPodcastDTOToPodcast(dto: PodcastLookupDTO): Podcast {
+  const podcast = dto.results.find((item) => item.kind === 'podcast') as PodcastDTO;
+  const episodes = dto.results.filter((item) => item.kind === 'podcast-episode') as EpisodeDTO[];
+
+  const mappedEpisodes = episodes.map(
+    (episode) => new Episode(episode.trackName, episode.releaseDate, episode.episodeUrl)
+  );
 
   return new Podcast(
     podcast.trackName,
@@ -11,6 +17,7 @@ export function mapPodcastDTOToPodcast(dto: PodcastDTO, description: string): Po
       src: podcast.artworkUrl600,
       size: 600
     },
-    description
+    podcast.feedUrl,
+    mappedEpisodes
   );
 }

@@ -1,10 +1,20 @@
 export interface PodcastDTO {
-  results: [
-    {
-      artistName: string;
-      trackName: string;
-      trackCount: number;
-      artworkUrl600: string;
-    }
-  ];
+  artistName: string;
+  trackName: string;
+  trackCount: number;
+  artworkUrl600: string;
+  feedUrl: string;
+  kind: 'podcast';
+}
+
+export interface EpisodeDTO {
+  trackName: string;
+  trackId: number;
+  releaseDate: string;
+  episodeUrl: string;
+  kind: 'podcast-episode';
+}
+
+export interface PodcastLookupDTO {
+  results: Array<PodcastDTO | EpisodeDTO>;
 }

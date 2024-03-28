@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useGetPodcast } from '../api/getPodcast';
 
 const PodcastDetail = ({ id }: { id: string }) => {
-  const { data } = useGetPodcast(id);
+  const { data: podcast } = useGetPodcast(id);
 
-  console.log(data);
+  console.log(podcast);
 
   return <div>test</div>;
 };
