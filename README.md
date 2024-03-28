@@ -1,3 +1,5 @@
+[Leer en Español](./README.es.md)
+
 # Technical Assessment for MCA
 
 This is a technical assessment developed by Alba Casas Arzúa as part of the interviewing process for MCA
@@ -20,6 +22,13 @@ This webapp has been developed with the following technologies:
 - Webpack for bundling the application in different modes
 
 All the code has been written in TypeScript to ensure type safety
+
+## Considerations
+
+I have had to make some changes due to limitations with iTunes and my tech stack, listed as follow:
+
+- The loading indicator in the header is displayed when there's a fetch occurring in the background INSTEAD of when a navigation is happening. This is because the React navigation is almost immediate.
+- The descriptions of the podcasts are being scraped from the `feedUrl` provided by the iTunes API. This is because at the moment of developing this app, the `/lookup` endpoint didn't return a `description` or `summary` property for a podcast entity. I still wanted to show the description, so I was able to scrape it from the podcast website.
 
 ## Running the Application
 
