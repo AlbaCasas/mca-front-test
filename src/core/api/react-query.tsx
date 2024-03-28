@@ -24,7 +24,7 @@ const persister = createSyncStoragePersister({
 
 export const ReactQueryProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <PersistQueryClientProvider persistOptions={{ persister }} client={client}>
+    <PersistQueryClientProvider persistOptions={{ persister, maxAge: ONE_DAY }} client={client}>
       {children}
     </PersistQueryClientProvider>
   );

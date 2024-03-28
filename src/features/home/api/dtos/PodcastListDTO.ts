@@ -20,6 +20,9 @@ interface Podcast {
       'im:id': string;
     };
   };
+  summary: {
+    label: string;
+  };
 }
 
 export interface PodcastListDTO {

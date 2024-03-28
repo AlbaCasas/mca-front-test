@@ -23,7 +23,7 @@ interface InputProps {
   onFocus?: (e: SyntheticEvent) => void;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, icon, label, name, defaultValue, placeholder, onChange, onBlur, onFocus }, ref) => {
     const [isFocused, setIsFocused] = React.useState(false);
     const [innerValue, setInnerValue] = React.useState(defaultValue);
@@ -80,5 +80,3 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = 'Input';
-
-export default Input;

@@ -1,5 +1,4 @@
-import { Column } from '@components';
-import Input from '@components/Input';
+import { Column, Input } from '@components';
 
 export const InputSearch = ({ onChange }: { onChange: (value: string) => void }) => {
   return (

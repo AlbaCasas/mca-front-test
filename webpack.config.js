@@ -7,6 +7,12 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 module.exports = (env, argv) => ({
   entry: './src/index.tsx',
   mode: argv.mode,
+  devServer: {
+    historyApiFallback: true,
+    static: path.join(__dirname, '../dist'),
+    port: 8080,
+    compress: true
+  },
   output: {
     filename: argv.mode === 'production' ? 'bundle.[fullhash].min.js' : 'bundle.js',
     path: path.resolve(__dirname, 'dist')

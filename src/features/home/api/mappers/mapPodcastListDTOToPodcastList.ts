@@ -15,7 +15,8 @@ export function mapPodcastListDTOToPodcastList(dto: PodcastListDTO): PodcastList
       src: imageObject.label
     };
     const author = entry['im:artist'].label;
-    return new Podcast(title, id, image, author);
+    const description = entry.summary.label;
+    return new Podcast(title, id, image, author, description);
   });
 
   return new PodcastList(podcasts);

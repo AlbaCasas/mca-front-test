@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useGetPodcastList } from '../api/getPodcastList';
 
-const useListPodcastsUseCase = () => {
+export const useListPodcastsUseCase = () => {
   const { data: podcastList } = useGetPodcastList();
   const [filter, setFilter] = React.useState<string>('');
 
@@ -23,5 +23,3 @@ const useListPodcastsUseCase = () => {
 
   return { podcasts, filterList, totalPodcasts, shownPodcasts };
 };
-
-export default useListPodcastsUseCase;

@@ -6,8 +6,10 @@ export class HTTPClient {
   private instance: AxiosInstance;
 
   constructor(baseURL: string) {
+    // I'm using cors-anywhere to avoid
+    // CORS related issues when consuming external endpoints
     this.instance = axios.create({
-      baseURL
+      baseURL: `https://cors-anywhere.herokuapp.com/${baseURL}`
     });
   }
 
