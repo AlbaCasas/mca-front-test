@@ -13,7 +13,7 @@ export class Podcast {
   ) {}
 
   public async scrapeDescription(): Promise<string> {
-    const xmlString = await new HTTPClient('').get<string>(this.feedUrl);
+    const xmlString = await new HTTPClient(this.feedUrl).get<string>('');
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
     const descriptionTag = xmlDoc.querySelector('description');

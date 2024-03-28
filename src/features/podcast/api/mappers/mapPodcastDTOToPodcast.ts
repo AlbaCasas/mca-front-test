@@ -7,7 +7,13 @@ export function mapPodcastDTOToPodcast(dto: PodcastLookupDTO): Podcast {
   const episodes = dto.results.filter((item) => item.kind === 'podcast-episode') as EpisodeDTO[];
 
   const mappedEpisodes = episodes.map(
-    (episode) => new Episode(episode.trackName, episode.releaseDate, episode.episodeUrl)
+    (episode) =>
+      new Episode(
+        `${episode.trackId}`,
+        episode.trackName,
+        episode.releaseDate,
+        episode.trackTimeMillis
+      )
   );
 
   return new Podcast(

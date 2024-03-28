@@ -12,7 +12,11 @@ export const Image = ({ src, alt, className, size }: ImageProps) => {
     <img
       src={src}
       alt={alt}
-      className={cls('w-auto object-cover object-center', { [`h-[${size}px]`]: !!size }, className)}
+      className={cls(
+        'w-auto object-cover object-center',
+        { [`h-[${size}px] w-[${size}px]`]: !!size },
+        className
+      )}
     />
   );
 };

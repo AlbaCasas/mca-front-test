@@ -11,7 +11,7 @@ export interface EpisodeDTO {
   trackName: string;
   trackId: number;
   releaseDate: string;
-  episodeUrl: string;
+  trackTimeMillis: number;
   kind: 'podcast-episode';
 }
 
