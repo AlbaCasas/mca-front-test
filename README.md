@@ -39,14 +39,15 @@ In development mode, assets are served without minification.
 To run the application in development mode, follow these steps:
 
 1. Clone this repository to your local machine.
-2. Open a terminal in the project's root directory.
-3. Run the following command to install dependencies:
+2. I'm using `CORS-Anywhere` to avoid CORS issues with the iTunes API, so you may need to visit https://cors-anywhere.herokuapp.com/ and click on the "Request temporary access to the demo server" so the app can get resutls from iTunes
+3. Open a terminal in the project's root directory.
+4. Run the following command to install dependencies:
 
 ```bash
 npm install
 ```
 
-4. After installing dependencies, run the following command to start the development server:
+5. After installing dependencies, run the following command to start the development server:
 
 ```bash
 npm start
@@ -61,14 +62,15 @@ In production mode, assets are served minified for better efficiency.
 To run the application in production mode, follow these steps:
 
 1. Clone this repository to your local machine.
-2. Open a terminal in the project's root directory.
-3. Run the following command to install dependencies:
+2. I'm using `CORS-Anywhere` to avoid CORS issues with the iTunes API, so you may need to visit https://cors-anywhere.herokuapp.com/ and click on the "Request temporary access to the demo server" so the app can get resutls from iTunes
+3. Open a terminal in the project's root directory.
+4. Run the following command to install dependencies:
 
 ```bash
 npm install
 ```
 
-4. After installing dependencies, run the following command to generate optimized files:
+5. After installing dependencies, run the following command to generate optimized files:
 
 ```bash
 npm run start:prod

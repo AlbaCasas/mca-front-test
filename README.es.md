@@ -38,14 +38,15 @@ En el modo de desarrollo, los assets se sirven sin minimizar.
 Para ejecutar la aplicación en modo de desarrollo, sigue estos pasos:
 
 1. Clona el repositorio en local
-2. Abre una terminal en la raíz del proyecto
-3. Ejecuta el siguiente comando para instalar dependencias
+2. Estoy usando CORS-Anywhere para evitar problemas de CORS con la API de iTunes, por lo que es posible que necesites visitar https://cors-anywhere.herokuapp.com/ y hacer click en "Request temporary access to the demo server" para que la aplicación pueda hacer fetch de iTunes
+3. Abre una terminal en la raíz del proyecto
+4. Ejecuta el siguiente comando para instalar dependencias
 
 ```bash
 npm install
 ```
 
-4. Después de instalar dependencias, ejecuta el servidor de desarrollo
+5. Después de instalar dependencias, ejecuta el servidor de desarrollo
 
 ```bash
 npm start
@@ -55,22 +56,23 @@ Esto iniciará el servidor de desarrollo y abrirá la aplicación en tu navegado
 
 ### Modo Producción
 
-En el modo de producción, los activos se sirven minimizados para mayor eficiencia.
+En el modo de producción, los assets se sirven minimizados para mayor eficiencia.
 
 Para ejecutar la aplicación en modo de producción, sigue estos pasos:
 
 1. Clona el repositorio en local
-2. Abre una terminal en la raíz del proyecto
-3. Ejecuta el siguiente comando para instalar dependencias
+2. Estoy usando CORS-Anywhere para evitar problemas de CORS con la API de iTunes, por lo que es posible que necesites visitar https://cors-anywhere.herokuapp.com/ y hacer click en "Request temporary access to the demo server" para que la aplicación pueda hacer fetch de iTunes
+3. Abre una terminal en la raíz del proyecto
+4. Ejecuta el siguiente comando para instalar dependencias
 
 ```bash
 npm install
 ```
 
-1. Después de instalar dependencias, ejecuta el servidor de producción
+5. Después de instalar dependencias, ejecuta el servidor de producción
 
 ```bash
-npm start:prod
+npm run start:prod
 ```
 
 Esto iniciará el servidor de producción y abrirá la aplicación en tu navegador
