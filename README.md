@@ -1,8 +1,16 @@
-[Leer en Español](./README.es.md)
+<div align="center">
+  <H1>Technical Assessment for MCA</H1>
+  <a href="https://mca-front-test.vercel.app/">Live Demo</a> ·
+  <a href="./README.es.md">Readme en español</a>
+  <p/>
+  <p/>
+    
+  ⚠️ **WARNING: Before running the app or using the demo, make sure to visit [CORS Anywhere](https://cors-anywhere.herokuapp.com/) and enable the demo server** ⚠️
+  
+  Missing this step will result in all fetches failing!
+</div>
 
-⚠️ **WARNING: Before running the app, make sure to visit [CORS Anywhere](https://cors-anywhere.herokuapp.com/) and enable the demo server (click on the button). Missing this step will result in all fetches failing!** ⚠️
-
-# Technical Assessment for MCA
+## Summary
 
 This is a technical assessment developed by Alba Casas Arzúa as part of the interviewing process for MCA
 
