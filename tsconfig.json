@@ -23,6 +23,7 @@
       "@navigation/*": ["./src/navigation/*"]
     }
   },
-  "include": ["src/**/**/*"],
+  "types": ["node", "vitest/globals", "jest"],
+  "include": ["src/**/**/*", "src/core/tests/mockApiServer.ts"],
   "exclude": ["node_modules"]
 }

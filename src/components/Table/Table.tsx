@@ -13,6 +13,7 @@ interface TableProps {
   loading?: boolean;
   error?: boolean;
   rowKey?: string;
+  rowTestId?: string;
   onEmptyRender?: () => React.ReactNode;
   onErrorRender?: () => React.ReactNode;
   onLoadingRender?: () => React.ReactNode;
@@ -26,6 +27,7 @@ export const Table = ({
   loading,
   error,
   rowKey,
+  rowTestId,
   onLoadingRender,
   onErrorRender,
   onEmptyRender,
@@ -60,6 +62,7 @@ export const Table = ({
           ),
           row: (props: object) => (
             <BodyTr
+              data-testid={rowTestId}
               {...props}
               className={cls({ 'cursor-pointer hover:bg-background': !!onRowClick })}
             />

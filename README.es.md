@@ -1,3 +1,5 @@
+⚠️ **WARNING: Antes de ejecutar la aplicación, asegúrese de visitar [CORS Anywhere](https://cors-anywhere.herokuapp.com/) y habilitar el demo server (click en el botón de la web). De no hacerlo, todos los fetch fallarán** ⚠️
+
 # Prueba Técnica para MCA
 
 Esta es una prueba técnica desarrollada por Alba Casas Arzúa como parte del proceso de entrevistas para MCA.
@@ -28,6 +30,27 @@ He tenido que realizar algunos cambios debido a limitaciones con iTunes y mi sta
 - El spinner de loading en la cabecera se muestra cuando hay un fetch, EN LUGAR de cuando se navega. Esto se debe a que la navegación con React es casi inmediata.
 - Las descripciones de los podcasts las extraígo de la propiedas `feedUrl` de la API de iTunes.
   Al momento de desarrollar esta prueba, el endpoint `/lookup` no devolvía una propiedad `description` o `summary` para la entidad de podcast. Aun así quería cumplir los acceptance criteria, así que pude extraerla del sitio web del podcast.
+
+## Ejecución de los Tests
+
+He incluido tests de aceptación para los principales criterios descritos en el PDF de la prueba técnica.
+
+He desarrollado los tests usando Vitest, React Testing Library y MSW como servidor mock para la API de itunes.
+
+Para ejecutar los tests, sigue estos pasos:
+
+1. Abre una terminal en el directorio raíz del proyecto.
+2. Ejecuta el siguiente comando para instalar las dependencias:
+
+```bash
+npm install
+```
+
+3. Ejecuta los tests con el siguiente comando:
+
+```bash
+npm run test
+```
 
 ## Ejecución de la Aplicación
 

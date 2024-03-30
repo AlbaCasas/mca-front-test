@@ -1,6 +1,4 @@
-'use client';
-
-import React from 'react';
+import React, { HTMLProps } from 'react';
 import type { SyntheticEvent } from 'react';
 
 import { cls } from '@core/styles/cls';
@@ -10,7 +8,7 @@ import { Icon as IconComponent } from './Icon';
 import { Row } from './Row';
 import type { Icon } from './icons';
 
-interface InputProps {
+interface InputProps extends HTMLProps<HTMLInputElement> {
   className?: string;
   value?: string;
   defaultValue?: string;
@@ -24,7 +22,21 @@ interface InputProps {
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, icon, label, name, defaultValue, placeholder, onChange, onBlur, onFocus }, ref) => {
+  (
+    {
+      className,
+      icon,
+      label,
+      name,
+      defaultValue,
+      placeholder,
+      onChange,
+      onBlur,
+      onFocus,
+      ...props
+    },
+    ref
+  ) => {
     const [isFocused, setIsFocused] = React.useState(false);
     const [innerValue, setInnerValue] = React.useState(defaultValue);
 
@@ -70,6 +82,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             placeholder={placeholder}
             defaultValue={defaultValue}
             ref={ref}
+            {...props}
           />
 
           {icon && <IconComponent name={icon} className="mr-4 text-lightText" />}

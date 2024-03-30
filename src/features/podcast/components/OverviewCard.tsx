@@ -40,9 +40,16 @@ export const OverviewCard = ({
   }
 
   return (
-    <Link className="flex flex-col md:w-[500px]" to={podcastPath}>
+    <Link
+      className="flex flex-col md:w-[500px]"
+      to={podcastPath}
+      data-testid="podcast-overview-card">
       <Card className="gap-3 p-0 pb-5 h-fit hover:scale-[101%] transition-all">
-        <Image src={image || ''} className="h-[240px] md:h-[300px] cursor-pointer" />
+        <Image
+          src={image || ''}
+          className="h-[240px] md:h-[300px] cursor-pointer"
+          data-testid="podcast-image"
+        />
         <Column className="px-4 gap-4">
           <Column>
             <Text subtitle>{title}</Text>

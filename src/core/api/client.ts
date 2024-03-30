@@ -1,5 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
+import { getCorsSafeURL } from './getCorsSafeUrl';
+
 // Only includes GET method since the requirements for
 // the technical test don't require a more complex solution
 export class HTTPClient {
@@ -9,7 +11,7 @@ export class HTTPClient {
     // I'm using cors-anywhere to avoid
     // CORS related issues when consuming external endpoints
     this.instance = axios.create({
-      baseURL: `https://cors-anywhere.herokuapp.com/${baseURL}`
+      baseURL: getCorsSafeURL(baseURL)
     });
   }
 

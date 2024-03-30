@@ -1,6 +1,8 @@
+import { HTMLProps } from 'react';
+
 import { cls } from '@core/styles/cls';
 
-interface TextProps {
+interface TextProps extends Omit<HTMLProps<HTMLSpanElement>, 'title'> {
   small?: boolean;
   tag?: boolean;
   body?: boolean;
@@ -25,7 +27,8 @@ export const Text = ({
   pointer,
   className,
   tooltip,
-  html
+  html,
+  ...props
 }: TextProps) => {
   return (
     <span
@@ -43,7 +46,8 @@ export const Text = ({
           'cursor-pointer': pointer
         },
         className
-      )}>
+      )}
+      {...props}>
       {children}
     </span>
   );

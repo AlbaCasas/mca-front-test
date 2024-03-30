@@ -11,27 +11,29 @@ const EpisodeDetail = ({ podcastId, episodeId }: { podcastId: string; episodeId:
   const loading = !episode || isLoading;
 
   return (
-    <LayoutWithPodcastCard podcastId={podcastId}>
-      <Column className="h-full">
-        <Card className="gap-3 p-4">
-          {loading ? (
-            <>
-              <Skeleton height={40} />
-              <Skeleton lines={8} height={14} />
-              <Skeleton height={40} className="mt-3" />
-            </>
-          ) : (
-            <>
-              <Text title>{episode.title}</Text>
-              <Text>{episode.description}</Text>
-              <audio controls className="w-full mt-3">
-                <source src={episode.fileUrl} type={`audio/${episode.fileFormat}`} />
-              </audio>
-            </>
-          )}
-        </Card>
-      </Column>
-    </LayoutWithPodcastCard>
+    <div data-testid="episode-detail-screen">
+      <LayoutWithPodcastCard podcastId={podcastId}>
+        <Column className="h-full">
+          <Card className="gap-3 p-4">
+            {loading ? (
+              <>
+                <Skeleton height={40} />
+                <Skeleton lines={8} height={14} />
+                <Skeleton height={40} className="mt-3" />
+              </>
+            ) : (
+              <>
+                <Text title>{episode.title}</Text>
+                <Text>{episode.description}</Text>
+                <audio controls className="w-full mt-3">
+                  <source src={episode.fileUrl} type={`audio/${episode.fileFormat}`} />
+                </audio>
+              </>
+            )}
+          </Card>
+        </Column>
+      </LayoutWithPodcastCard>
+    </div>
   );
 };
 

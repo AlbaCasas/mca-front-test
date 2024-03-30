@@ -15,7 +15,7 @@ export const HomeScreen = () => {
     <Column className="gap-3 py-6 px-8 bg-background min-h-[100vh]">
       <Column>
         <Row className="w-full items-center flex-wrap gap-3">
-          <Text title className="flex-grow text-center md:text-left">
+          <Text title className="flex-grow text-center md:text-left break-words">
             Most popular podcasts
           </Text>
           <InputSearch onChange={filterList} />
@@ -28,7 +28,11 @@ export const HomeScreen = () => {
       </Column>
       <Row className="flex-wrap gap-4 justify-center md:justify-start">
         {podcasts?.map((podcast) => (
-          <Link to={getPodcastPath(podcast.id)} key={podcast.id} className="flex">
+          <Link
+            to={getPodcastPath(podcast.id)}
+            key={podcast.id}
+            className="flex w-full sm:w-fit"
+            data-testid="podcast-card">
             <PodcastCard author={podcast.author} image={podcast.image.src} title={podcast.title} />
           </Link>
         ))}

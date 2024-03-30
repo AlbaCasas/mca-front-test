@@ -1,4 +1,4 @@
-interface Podcast {
+export interface PodcastDTO {
   title: {
     label: string;
   };
@@ -27,6 +27,6 @@ interface Podcast {
 
 export interface PodcastListDTO {
   feed: {
-    entry: Podcast[];
+    entry: PodcastDTO[];
   };
 }

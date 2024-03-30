@@ -12,10 +12,14 @@ const PodcastDetail = ({ id }: { id: string }) => {
   });
 
   return (
-    <LayoutWithPodcastCard podcastId={id}>
-      <Text subtitle>All Episodes ({podcast?.episodes.length})</Text>
-      <EpisodesTable episodes={podcast?.episodes} isLoading={isPodcastLoading} />
-    </LayoutWithPodcastCard>
+    <div data-testid="podcast-detail-screen">
+      <LayoutWithPodcastCard podcastId={id}>
+        <Text subtitle data-testid="number-episodes">
+          All Episodes ({podcast?.episodes.length})
+        </Text>
+        <EpisodesTable episodes={podcast?.episodes} isLoading={isPodcastLoading} />
+      </LayoutWithPodcastCard>
+    </div>
   );
 };
 

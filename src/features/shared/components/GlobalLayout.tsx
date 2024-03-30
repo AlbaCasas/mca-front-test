@@ -9,7 +9,7 @@ export const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Column>
-      <Row className="bg-white w-full h-[80px] items-center shadow-md z-10 fixed px-8">
+      <Row className="bg-white w-full h-[80px] items-center shadow-md z-10 fixed px-8 justify-center md:justify-start">
         <Blocks visible={!!isFetching} width={48} height={48} />
         <Link to="/" className="cursor-pointer flex flex-col">
           <Text title className="text-dark">

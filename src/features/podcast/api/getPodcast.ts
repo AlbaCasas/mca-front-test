@@ -1,10 +1,11 @@
-import { HTTPClient } from 'src/core/api/client';
-
+import { HTTPClient } from '@core/api/client';
 import { useQuery } from '@tanstack/react-query';
 
 import { KEYS } from './cache';
 import { PodcastLookupDTO } from './dtos/PodcastDTO';
 import { mapPodcastDTOToPodcast } from './mappers/mapPodcastDTOToPodcast';
+
+export const getPodcastEndpoint = 'https://itunes.apple.com/lookup';
 
 const client = new HTTPClient('https://itunes.apple.com/');
 

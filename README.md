@@ -1,5 +1,7 @@
 [Leer en Español](./README.es.md)
 
+⚠️ **WARNING: Before running the app, make sure to visit [CORS Anywhere](https://cors-anywhere.herokuapp.com/) and enable the demo server (click on the button). Missing this step will result in all fetches failing!** ⚠️
+
 # Technical Assessment for MCA
 
 This is a technical assessment developed by Alba Casas Arzúa as part of the interviewing process for MCA
@@ -29,6 +31,27 @@ I have had to make some changes due to limitations with iTunes and my tech stack
 
 - The loading indicator in the header is displayed when there's a fetch occurring in the background INSTEAD of when a navigation is happening. This is because the React navigation is almost immediate.
 - The descriptions of the podcasts are being scraped from the `feedUrl` provided by the iTunes API. This is because at the moment of developing this app, the `/lookup` endpoint didn't return a `description` or `summary` property for a podcast entity. I still wanted to show the description, so I was able to scrape it from the podcast website.
+
+## Running the Tests
+
+I have included acceptance tests for the main acceptance criteria outlined in the assignment PDF.
+
+The tests have been implemented using Vitest, React Testing Library and MSW as an API mock server.
+
+To execute the tests, follow these steps:
+
+1. Open a terminal in the project's root directory.
+2. Run the following command to install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the tests with the following command:
+
+```bash
+npm run test
+```
 
 ## Running the Application
 

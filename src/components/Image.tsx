@@ -1,6 +1,8 @@
+import { HTMLProps } from 'react';
+
 import { cls } from '@core/styles/cls';
 
-interface ImageProps {
+interface ImageProps extends HTMLProps<HTMLImageElement> {
   src: string;
   size?: number;
   alt?: string;
@@ -8,7 +10,7 @@ interface ImageProps {
   onClick?: () => void;
 }
 
-export const Image = ({ src, alt, className, size, onClick }: ImageProps) => {
+export const Image = ({ src, alt, className, size, onClick, ...props }: ImageProps) => {
   return (
     <img
       src={src}
@@ -19,6 +21,7 @@ export const Image = ({ src, alt, className, size, onClick }: ImageProps) => {
         className
       )}
       onClick={onClick}
+      {...props}
     />
   );
 };

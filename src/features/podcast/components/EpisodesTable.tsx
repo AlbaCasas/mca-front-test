@@ -43,6 +43,7 @@ export const EpisodesTable = ({
           <Skeleton height={50} lines={20} />
         </Column>
       )}
+      rowTestId="episode-row"
       onRowClick={(episode: Episode) => navigate(`episode/${episode.id}`)}
       loading={isLoading}
     />
